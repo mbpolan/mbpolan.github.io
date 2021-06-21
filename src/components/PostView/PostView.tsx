@@ -10,30 +10,32 @@ const Heading = styled.div`
 `;
 
 export interface PostViewProps {
-    entry: BlogPostEntry;
+  entry: BlogPostEntry;
 }
 
-export const PostView = ({
-    entry
-}: PostViewProps) => {
-    const formatDate = () => {
-        return new Date(entry.publishedDate).toLocaleDateString('en-US',
-        {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        });
-    }
+export const PostView = ({ entry }: PostViewProps) => {
+  const formatDate = () => {
+    return new Date(entry.publishedDate).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
 
-    return (
-        <PageContainer>
-            <Heading>
-                <h1>{entry.title}</h1>
-                <h4>{formatDate()}</h4>
-            </Heading>
-            <ReactMarkdown components={{
-                code: PrismRenderer
-            }} remarkPlugins={[gfm]}>{entry.content}</ReactMarkdown>
-        </PageContainer>
-    );
+  return (
+    <PageContainer>
+      <Heading>
+        <h1>{entry.title}</h1>
+        <h4>{formatDate()}</h4>
+      </Heading>
+      <ReactMarkdown
+        components={{
+          code: PrismRenderer,
+        }}
+        remarkPlugins={[gfm]}
+      >
+        {entry.content}
+      </ReactMarkdown>
+    </PageContainer>
+  );
 };

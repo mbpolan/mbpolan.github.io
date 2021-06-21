@@ -11,8 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .breadcrumb {
-        background-color: ${(props: any) =>
-          props.theme.breadcrumb.backgroundColor};
+        background-color: ${(props: any) => props.theme.breadcrumb.backgroundColor};
     }
 
     .breadcrumb-item.active {

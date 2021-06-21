@@ -34,7 +34,7 @@ export const useContent = <T>(query: any): UseContentResult<T> => {
         setLoading(false);
       }
     })();
-  }, [query, context.client]);
+  }, [query, context.client, cache.data]);
 
   return [data, error, loading];
 };

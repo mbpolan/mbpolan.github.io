@@ -11,7 +11,7 @@ interface ContainerProps {
   onChangeTheme: (mode: ThemeMode) => void;
 }
 
-const Container = ({onChangeTheme}: ContainerProps) => {
+const Container = ({ onChangeTheme }: ContainerProps) => {
   const { search } = useLocation();
   const [liveMode, setLiveMode] = useState<boolean>(true);
 
@@ -32,11 +32,12 @@ const Container = ({onChangeTheme}: ContainerProps) => {
       </Switch>
     </ContentfulProvider>
   );
-}
+};
 
 const App = () => {
-  const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const [ themeMode, setThemeMode ] = useState<ThemeMode>(prefersDarkMode ? 'dark' : 'light');
+  const prefersDarkMode =
+    window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [themeMode, setThemeMode] = useState<ThemeMode>(prefersDarkMode ? 'dark' : 'light');
 
   return (
     <ThemeModeProvider mode={themeMode}>
@@ -44,11 +45,11 @@ const App = () => {
         <GlobalStyles />
 
         <HashRouter>
-          <Container onChangeTheme={setThemeMode}/>
+          <Container onChangeTheme={setThemeMode} />
         </HashRouter>
       </ThemeProvider>
     </ThemeModeProvider>
   );
-}
+};
 
 export default App;
