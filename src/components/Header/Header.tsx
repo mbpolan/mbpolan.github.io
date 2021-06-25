@@ -28,10 +28,12 @@ export const Header = ({ onChangeTheme }: HeaderProps) => {
       <Navbar.Brand href="#home">Mike Polan</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <ThemeButton onClick={handleThemeClick}>
-          {themeMode === 'light' ? <MoonStars /> : <Sun />}
-        </ThemeButton>
         <Nav className="mr-auto">
+          <Navbar.Text>
+            <ThemeButton onClick={handleThemeClick}>
+              {themeMode === 'light' ? <MoonStars /> : <Sun />}
+            </ThemeButton>
+          </Navbar.Text>
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#blog">Blog</Nav.Link>
         </Nav>

@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 import gfm from 'remark-gfm';
 import { PrismRenderer } from './PrismRenderer';
+import rehypeRaw from 'rehype-raw';
 
 const Heading = styled.div`
   margin-bottom: 20px;
@@ -33,6 +34,7 @@ export const PostView = ({ entry }: PostViewProps) => {
           code: PrismRenderer,
         }}
         remarkPlugins={[gfm]}
+        rehypePlugins={[rehypeRaw]}
       >
         {entry.content}
       </ReactMarkdown>
